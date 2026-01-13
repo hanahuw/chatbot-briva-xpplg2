@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background: #e5e7eb;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@ body {
 .chat-container {
   width: 100%;
   max-width: 420px;
-  height: 100vh;
+  min-height: 100vh;
   background: white;
   display: flex;
   flex-direction: column;
