@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot BRIVA</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="chat-container">
+
+  <div class="chat-header">
+    BRIVA Kelas X PPLG 2
+  </div>
+
+  <div class="chat-box" id="chatBox">
+    <div class="bubble bot">
+      Halo 👋<br>
+      Silakan ketik nama kamu untuk melihat nomor virtual (BRIVA).
+    </div>
+  </div>
+
+  <div class="input-box">
+    <input type="text" id="userInput" placeholder="Ketik nama..." autocomplete="off">
+    <button onclick="sendMessage()">Kirim</button>
+  </div>
+
+</div>
+
+
+<script>
+function addBubble(text, sender) {
+  const chatBox = document.getElementById("chatBox");
+  const bubble = document.createElement("div");
+  bubble.className = "bubble " + sender;
+  bubble.innerHTML = text;
+  chatBox.appendChild(bubble);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const message = input.value.trim();
+  if (!message) return;
+
+  addBubble(message, "user");
+  input.value = "";
+
+  fetch("/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: message })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.type === "success") {
+      addBubble(
+        `Nomor Virtual (BRIVA) atas nama <b>${data.nama}</b> adalah:<br><b>${data.briva}</b>`,
+        "bot"
+      );
+    } else {
+      addBubble(data.message, "bot error");
+    }
+  });
+}
+
+// Enter = kirim
+document.getElementById("userInput").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") sendMessage();
+});
+</script>
+
+</body>
+</html>
