@@ -8,13 +8,13 @@ body {
 }
 
 .chat-container {
-  width: 400px;
-  height: 600px;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
   background: white;
   display: flex;
   flex-direction: column;
-  border-radius: 12px;
-  overflow: hidden;
+  margin: auto;
 }
 
 .chat-box {
@@ -111,4 +111,14 @@ body {
 }
 .input-box button:hover {
   background: #1e40af;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .chat-container {
+    border-radius: 0;
+  }
 }
