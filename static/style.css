@@ -6,7 +6,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #6b73ff, #7f53ac);
+  background: linear-gradient(135deg, #494fcc, #262382);
 }
 
 /* WRAPPER (CUMA BUAT CENTER + SCALE) */
@@ -118,5 +118,5 @@ body {
   background: #fee2e2;      /* merah lembut */
   color: #991b1b;           /* merah teks */
   align-self: flex-start;   /* tetap kayak bot */
-  border: 1px solid #fca5a5;
+  /* border: 1px solid #fca5a5; */
 }
