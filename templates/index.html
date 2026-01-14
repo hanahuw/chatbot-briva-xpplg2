@@ -7,30 +7,28 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<div class="chat-wrapper">
-  <div class="chat-container">
+  <div class="chat-wrapper">
+    <div class="chat-container">
 
-    <div class="chat-header">
-      <div class="header-text">
+      <div class="chat-header">
         <h1>BRIVA Kelas X PPLG 2</h1>
         <p>Asisten Informasi Virtual</p>
       </div>
-    </div>
 
-    <div class="chat-box" id="chatBox">
-      <div class="bubble bot">
-        Halo 👋<br>
-        Silakan ketik nama siswa untuk melihat nomor virtual (BRIVA) pembayarannya.
+      <div class="chat-box" id="chatBox">
+        <div class="bubble bot">
+          Halo 👋<br>
+          Silakan ketik nama siswa untuk melihat nomor virtual (BRIVA) pembayarannya.
+        </div>
       </div>
-    </div>
 
-    <div class="input-box">
-      <input type="text" id="userInput" placeholder="Ketik nama..." autocomplete="off">
-      <button onclick="sendMessage()">Kirim</button>
-    </div>
+      <div class="input-box">
+        <input type="text" id="userInput" placeholder="Ketik nama...">
+        <button onclick="sendMessage()">Kirim</button>
+      </div>
 
+    </div>
   </div>
-</div>
 
 <script>
 function addBubble(text, sender) {
