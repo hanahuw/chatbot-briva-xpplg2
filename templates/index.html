@@ -8,26 +8,28 @@
 </head>
 <body>
 
-<div class="chat-container">
+  <div class="chat-container">
 
-  <div class="chat-header">
-    BRIVA Kelas X PPLG 2
-  </div>
-
-  <div class="chat-box" id="chatBox">
-    <div class="bubble bot">
-      Halo 👋<br>
-      Silakan ketik nama kamu untuk melihat nomor virtual (BRIVA).
+    <div class="chat-header">
+      <div class="header-text">
+        <h1>BRIVA Kelas X PPLG 2</h1>
+        <p>Asisten Informasi Virtual</p>
+      </div>
     </div>
+
+    <div class="chat-box" id="chatBox">
+      <div class="bubble bot">
+        Halo 👋<br>
+        Silakan ketik nama kamu untuk melihat nomor virtual (BRIVA).
+      </div>
+    </div>
+
+    <div class="input-box">
+      <input type="text" id="userInput" placeholder="Ketik nama..." autocomplete="off">
+      <button onclick="sendMessage()">Kirim</button>
+    </div>
+
   </div>
-
-  <div class="input-box">
-    <input type="text" id="userInput" placeholder="Ketik nama..." autocomplete="off">
-    <button onclick="sendMessage()">Kirim</button>
-  </div>
-
-</div>
-
 
 <script>
 function addBubble(text, sender) {
@@ -35,11 +37,9 @@ function addBubble(text, sender) {
   const bubble = document.createElement("div");
   bubble.className = "bubble " + sender;
   bubble.innerHTML = text;
-
   chatBox.appendChild(bubble);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
-
 
 function sendMessage() {
   const input = document.getElementById("userInput");
@@ -52,7 +52,7 @@ function sendMessage() {
   fetch("/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: message })
+    body: JSON.stringify({ message })
   })
   .then(res => res.json())
   .then(data => {
@@ -67,7 +67,6 @@ function sendMessage() {
   });
 }
 
-// Enter = kirim
 document.getElementById("userInput").addEventListener("keypress", function(e) {
   if (e.key === "Enter") sendMessage();
 });
