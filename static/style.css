@@ -10,11 +10,13 @@ body {
 .chat-container {
   width: 100%;
   max-width: 420px;
-  min-height: 75vh;
-  background: white;
+  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
-  margin: auto;
+
+  margin: 0 auto;
+  background: #ffffff;
 }
 
 .chat-box {
@@ -49,10 +51,14 @@ body {
 }
 
 .input-box {
-  display: flex;
   padding: 10px;
   border-top: 1px solid #e5e7eb;
+  background: white;
+  flex-shrink: 0;
+  display: flex;
+  gap: 8px;
 }
+
 
 .input-box input {
   flex: 1;
@@ -71,10 +77,14 @@ body {
   cursor: pointer;
 }
 .chat-box {
+  flex: 1;                 /* ⬅️ AMBIL SISA RUANG */
+  overflow-y: auto;        /* ⬅️ SCROLL DI SINI */
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  gap: 6px;
 }
+
 
 .bot {
   align-self: flex-start;
@@ -87,13 +97,14 @@ body {
   align-self: center;
 }
 .chat-header {
-  background: #2563eb;
-  color: white;
   padding: 14px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 15px;
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+  flex-shrink: 0;
 }
+
 .chat-box::-webkit-scrollbar {
   width: 6px;
 }
@@ -111,6 +122,31 @@ body {
 }
 .input-box button:hover {
   background: #1e40af;
+}
+
+.bubble {
+  max-width: 78%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.bot {
+  align-self: flex-start;
+  background: #f1f5f9;
+}
+
+.user {
+  align-self: flex-end;
+  background: #2563eb;
+  color: white;
+}
+.error {
+  align-self: center;
+  background: #fee2e2;
+  color: #991b1b;
 }
 
 @media (max-width: 480px) {

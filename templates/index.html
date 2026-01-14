@@ -35,9 +35,11 @@ function addBubble(text, sender) {
   const bubble = document.createElement("div");
   bubble.className = "bubble " + sender;
   bubble.innerHTML = text;
+
   chatBox.appendChild(bubble);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
+
 
 function sendMessage() {
   const input = document.getElementById("userInput");
