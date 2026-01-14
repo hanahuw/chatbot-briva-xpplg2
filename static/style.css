@@ -112,6 +112,12 @@ body {
   color: white;
 }
 
+.chat-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+
 /* ================= MOBILE = ZOOM MODE ================= */
 @media (max-width: 480px) {
 
@@ -119,8 +125,13 @@ body {
     padding: 16px 0;
   }
 
-  .chat-container {
-    transform: scale(0.9);          /* 🔥 ZOOM OUT */
+  .chat-wrapper {
+    transform: scale(0.9);      /* 🔥 SCALE DI SINI */
     transform-origin: top center;
   }
+
+  .chat-container {
+    transform: none;            /* ❗ JANGAN DISCALE */
+  }
 }
+
