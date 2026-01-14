@@ -14,12 +14,14 @@ body {
   width: 100%;
   max-width: 420px;
   min-height: 100vh;
+  margin: 0 auto;
 
   display: flex;
   flex-direction: column;
 
   background: #ffffff;
 }
+
 
 /* ===== HEADER ===== */
 .chat-header {
@@ -42,6 +44,7 @@ body {
 
   overflow-y: auto;
 }
+
 
 /* ===== SCROLLBAR ===== */
 .chat-box::-webkit-scrollbar {
